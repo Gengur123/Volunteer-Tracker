@@ -5,10 +5,14 @@ require('./lib/volunteer')
 require('pry')
 require('pg')
 also_reload('lib/**/*.rb')
-also_reload('app.rb')
 
-DB = PG.connect({:dbname => "volunteer_tracker"})
+DB = PG.connect({ dbname: 'volunteer_tracker', host: 'db', user: 'postgres', password: 'password' })
 
-get '/' do
-  "This is connected to the database #{DB.db}."
+get('/') do
+  redirect to('/projects')
+end
+
+get('/projects') do
+  @projects = Project.all
+  erb(:projects)
 end
