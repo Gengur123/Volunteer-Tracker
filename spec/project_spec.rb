@@ -14,12 +14,13 @@ describe Project do
       expect(project.id).to eq nil
     end
   end
-#     it 'returns the id of the project after saving project' do
-#       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-#       project.save
-#       expect(project.id).to be_an_instance_of Integer
-#     end
-#   end
+
+    it 'returns the id of the project after saving project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      expect(project.id).to be_an_instance_of Integer
+    end
+
 
 #   describe '#==' do
 #     it 'is the same project if two projects have the same title' do
